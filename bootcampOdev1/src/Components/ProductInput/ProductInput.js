@@ -11,6 +11,7 @@ const Productinput = ({ objectData }) => {
   const handleClick = () => {
     objectData(name, price)
     Keyboard.dismiss()
+    setName("")
   }
 
   return (

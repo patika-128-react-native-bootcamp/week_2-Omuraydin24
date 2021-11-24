@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList } from 'react-native';
 import Badge from "./Components/Badge";
 import ProductInput from './Components/ProductInput';
 import ProductCard from './Components/ProductCard';
@@ -14,18 +14,28 @@ function App() {
   }
 
   const handleInput = (name, price) => {
-    const productData = {
-      name: name,
-      price: price,
-      // id: Math.random(),
-      date: new Date(),
-    }
+    const productData = { name: name, price: price, date: new Date() }
     setArrayData([...arrayData, productData])
+  }
+  console.log("arrayData", arrayData)
+
+  const byAscendingPrice = () => {
+    arrayData.sort((a, b) => a.price - b.price);
+    setArrayData([...arrayData])
+  }
+  const byDescendingPrice = () => {
+    arrayData.sort((a, b) => b.price - a.price);
+    setArrayData([...arrayData])
+  }
+  const byDate = () => {
+    arrayData.sort((a, b) => a.date - b.date);
+    setArrayData([...arrayData])
+
   }
 
   return (
     <View style={{ justifyContent: "space-between", flex: 1 }}>
-      <Badge />
+      <Badge byAscendingPrice={byAscendingPrice} byDate={byDate} byDescendingPrice={byDescendingPrice} />
       <FlatList
         data={arrayData}
         renderItem={renderCard}

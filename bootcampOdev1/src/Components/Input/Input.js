@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 import styles from './Input.style';
 
-const Input = ({ onSubmit, title, placeholder, type }) => {
+const Input = ({ onSubmit, title, placeholder, type, value }) => {
   return (
     <View>
       <Text style={styles.inputTitle}>{title}</Text>
@@ -10,6 +10,7 @@ const Input = ({ onSubmit, title, placeholder, type }) => {
         placeholder={`Bir ${placeholder} Giriniz...`}
         onChangeText={onSubmit}
         keyboardType={type}
+        value={value}
       />
     </View>
   )

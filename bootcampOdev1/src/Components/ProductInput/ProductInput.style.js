@@ -6,13 +6,5 @@ export default StyleSheet.create({
     height: height * 0.25,
     borderWidth: 1,
     borderColor: '#cfd8dc',
-    
   },
-
-  nameInput : {
-
-
-  },
-
-
 })

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
+
 import Badge from "./Components/Badge";
 import ProductInput from './Components/ProductInput';
 import ProductCard from './Components/ProductCard';
+
+import styles from './App.styles';
 
 function App() {
   const [arrayData, setArrayData] = useState([]);
@@ -34,7 +37,7 @@ function App() {
   }
 
   return (
-    <View style={{ justifyContent: "space-between", flex: 1 }}>
+    <View style={styles.container}>
       <Badge byAscendingPrice={byAscendingPrice} byDate={byDate} byDescendingPrice={byDescendingPrice} />
       <FlatList
         data={arrayData}
